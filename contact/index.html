@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zachary McDougal — Contact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060606;
+    --bg-raised: #121212;
+    --ink: #f4f2ea;
+    --muted: #8f8c82;
+    --line: #262626;
+    --line-strong: #3d3d3d;
+    --accent: #d6ff3f;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { background: var(--bg); scroll-behavior: smooth; transition: background-color 0.35s ease; overflow-x: hidden; width: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Mono", monospace;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+    transition: background-color 0.35s ease, color 0.35s ease;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.05;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .corner-nav {
+    position: fixed;
+    top: 20px;
+    font-family: "Syne", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    z-index: 100;
+  }
+  .corner-nav.left { left: 20px; }
+  .corner-nav.right { right: 20px; }
+  .corner-nav:hover { opacity: 0.6; color: var(--accent); }
+
+  .top-name {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Syne", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    z-index: 100;
+  }
+
+  .contact-wrap {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .contact-heading {
+    font-size: clamp(10px, 2vw, 12px);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: clamp(16px, 3vw, 30px);
+    text-align: left;
+  }
+
+  .contact-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    text-align: left;
+    width: 100%;
+  }
+
+  .contact-heading,
+  .contact-item {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .contact-heading.visible,
+  .contact-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .contact-item .value {
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: clamp(20px, 7.5vw, 96px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    color: var(--ink);
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s ease;
+  }
+  .contact-item .value:hover { opacity: 0.6; }
+
+  footer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    .corner-nav { top: 14px; font-size: 10px; }
+    .top-name { top: 14px; font-size: 11px; }
+    .corner-nav.left { left: 14px; }
+    .corner-nav.right { right: 14px; }
+    .contact-wrap { padding: 0 16px; }
+    footer { padding: 0 16px 40px; }
+  }
+</style>
+</head>
+<body>
+
+<a class="corner-nav left" href="/credits/">Credits</a>
+<a class="corner-nav right" href="#">Contact</a>
+<div class="top-name">Zachary McDougal</div>
+
+<div class="contact-wrap">
+  <div class="contact-heading">Get in touch</div>
+  <div class="contact-block">
+    <div class="contact-item">
+      <a class="value" href="mailto:info@zacharymcdougal.com">info@zacharymcdougal.com</a>
+    </div>
+    <div class="contact-item">
+      <a class="value" href="https://instagram.com/zachary_mcdougal" target="_blank" rel="noopener">@zachary_mcdougal</a>
+    </div>
+    <div class="contact-item">
+      <a class="value" href="tel:+12404541845">240-454-1845</a>
+    </div>
+  </div>
+</div>
+
+<footer>Zachary McDougal — Designed in Los Angeles, CA</footer>
+
+<script>
+  (function () {
+    // Fade in, staggered — same treatment as the album covers on the credits page.
+    var items = document.querySelectorAll(".contact-heading, .contact-item");
+    items.forEach(function (el, i) {
+      setTimeout(function () {
+        el.classList.add("visible");
+      }, 150 + i * 140);
+    });
+
+    // Auto-fit: shrink the contact text (as a group, so sizes stay uniform)
+    // just enough that the longest line (the email) never overflows the
+    // viewport, on any screen size — recalculated on load, font-load, and resize.
+    var values = document.querySelectorAll(".contact-item .value");
+    var wrap = document.querySelector(".contact-wrap");
+
+    function fitContactText() {
+      if (!values.length || !wrap) return;
+      values.forEach(function (v) { v.style.fontSize = ""; });
+
+      var wrapStyle = getComputedStyle(wrap);
+      var available = wrap.clientWidth - parseFloat(wrapStyle.paddingLeft) - parseFloat(wrapStyle.paddingRight);
+
+      var minScale = 1;
+      values.forEach(function (v) {
+        var full = v.scrollWidth;
+        if (full > available) {
+          var scale = available / full;
+          if (scale < minScale) minScale = scale;
+        }
+      });
+
+      if (minScale < 1) {
+        values.forEach(function (v) {
+          var current = parseFloat(getComputedStyle(v).fontSize);
+          v.style.fontSize = (current * minScale * 0.97) + "px";
+        });
+      }
+    }
+
+    window.addEventListener("load", fitContactText);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(fitContactText);
+    }
+    var resizeTimer;
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(fitContactText, 120);
+    });
+    fitContactText();
+  })();
+</script>
+
+</body>
+</html>
