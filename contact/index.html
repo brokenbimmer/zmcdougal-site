@@ -2,16 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<script>
-  (function () {
-    try {
-      var t = localStorage.getItem("zm-theme");
-      if (t && ["mono", "ivory", "noir", "umber"].indexOf(t) !== -1) {
-        document.documentElement.setAttribute("data-theme", t);
-      }
-    } catch (e) {}
-  })();
-</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zachary McDougal — Contact</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,16 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #060606;
-    --bg-raised: #121212;
-    --ink: #f4f2ea;
-    --muted: #8f8c82;
-    --line: #262626;
-    --line-strong: #3d3d3d;
-    --accent: #d6ff3f;
-  }
-
-  html[data-theme="mono"] {
     --bg: #f8f8f6;
     --bg-raised: #eeeeea;
     --ink: #141412;
@@ -36,24 +16,6 @@
     --line: #e2e1da;
     --line-strong: #c7c5ba;
     --accent: #141412;
-  }
-  html[data-theme="ivory"] {
-    --bg: #f6f3ec;
-    --bg-raised: #ece7da;
-    --ink: #1e1b16;
-    --muted: #837c6c;
-    --line: #e6e0d1;
-    --line-strong: #c9c0a8;
-    --accent: #1e1b16;
-  }
-  html[data-theme="umber"] {
-    --bg: #1c1712;
-    --bg-raised: #251e17;
-    --ink: #ece3d2;
-    --muted: #9c8f78;
-    --line: #362c22;
-    --line-strong: #4d4032;
-    --accent: #ece3d2;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -97,30 +59,6 @@
   .corner-nav.left { left: 20px; }
   .corner-nav.right { right: 20px; }
   .corner-nav:hover { opacity: 0.6; color: var(--accent); }
-
-  .theme-switcher {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    gap: 8px;
-    z-index: 300;
-  }
-  .theme-dot {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: var(--dot-bg);
-    border: 1px solid var(--dot-ink);
-    padding: 0;
-    cursor: pointer;
-    box-sizing: border-box;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-  .theme-dot:hover { transform: scale(1.2); }
-  .theme-dot.active {
-    box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--dot-ink);
-  }
 
   .top-name {
     position: fixed;
@@ -209,8 +147,6 @@
     .corner-nav.right { right: 14px; }
     .contact-wrap { padding: 0 16px; }
     footer { padding: 0 16px 40px; }
-    .theme-switcher { bottom: 14px; right: 14px; gap: 6px; }
-    .theme-dot { width: 13px; height: 13px; }
   }
 </style>
 </head>
@@ -236,39 +172,6 @@
 </div>
 
 <footer>Zachary McDougal — Designed in Los Angeles, CA</footer>
-
-<div class="theme-switcher" role="group" aria-label="Color theme">
-  <button type="button" class="theme-dot" data-theme-value="mono" style="--dot-bg:#f8f8f6; --dot-ink:#141412;" title="Mono" aria-label="Mono theme"></button>
-  <button type="button" class="theme-dot" data-theme-value="ivory" style="--dot-bg:#f6f3ec; --dot-ink:#1e1b16;" title="Ivory" aria-label="Ivory theme"></button>
-  <button type="button" class="theme-dot" data-theme-value="noir" style="--dot-bg:#060606; --dot-ink:#d6ff3f;" title="Noir" aria-label="Noir theme"></button>
-  <button type="button" class="theme-dot" data-theme-value="umber" style="--dot-bg:#1c1712; --dot-ink:#ece3d2;" title="Umber" aria-label="Umber theme"></button>
-</div>
-
-<script>
-  (function () {
-    var THEMES = ["mono", "ivory", "noir", "umber"];
-    var root = document.documentElement;
-    var stored = localStorage.getItem("zm-theme");
-    if (stored && THEMES.indexOf(stored) === -1) stored = null;
-
-    function setActiveDot(theme) {
-      document.querySelectorAll(".theme-dot").forEach(function (dot) {
-        dot.classList.toggle("active", dot.getAttribute("data-theme-value") === theme);
-      });
-    }
-
-    setActiveDot(stored || "noir");
-
-    document.querySelectorAll(".theme-dot").forEach(function (dot) {
-      dot.addEventListener("click", function () {
-        var theme = dot.getAttribute("data-theme-value");
-        root.setAttribute("data-theme", theme);
-        try { localStorage.setItem("zm-theme", theme); } catch (e) {}
-        setActiveDot(theme);
-      });
-    });
-  })();
-</script>
 
 <script>
   (function () {
